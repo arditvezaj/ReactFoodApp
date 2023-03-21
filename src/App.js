@@ -1,13 +1,13 @@
 import React from "react";
 
-import Header from "./Header";
-import Login from "./Login";
+import Header from "./components/Header";
+import Meals from "./components/Meals";
 
 function App() {
   return (
-    <div >
+    <div>
       <Header />
-      <Login />
+      <Meals />
     </div>
   );
 }
