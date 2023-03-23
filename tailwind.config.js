@@ -5,6 +5,7 @@ module.exports = {
     "./src/components/Header.js",
     "./src/components/Login.js",
     "./src/components/Meals.js",
+    "./src/components/MealsSummary.js",
   ],
   theme: {
     extend: {

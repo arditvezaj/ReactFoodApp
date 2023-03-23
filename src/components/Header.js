@@ -4,19 +4,24 @@ import logo from "../assets/img/logo.jpg";
 import cartIcon from "../assets/img/headericon.svg";
 const Header = () => {
   return (
-    <div className="flex justify-between items-center text-lg bg-slate-200">
+    <div className="py-3 flex justify-between items-center font-bold text-white text-lg bg-orange-800">
       <div className="flex items-center">
         <a href="/">
-          <img className="w-20 h-20" src={logo} alt="logo" />
+          <img className="w-20 h-20 ml-3 rounded-full" src={logo} alt="logo" />
         </a>
-        <div className="text-2xl font-bold">Restaurant Diti</div>
+        <div className="text-2xl ml-4">Restaurant Diti</div>
       </div>
-      <div className="flex items-center justify-between w-[18rem] mr-10">
+      <div className="flex items-center justify-between w-[20rem] mr-10">
         <a href="/menu">Menu</a>
-        <a href="/your-cart" className="flex">
-          <img className="w-8 h-8 mr-1" src={cartIcon} />
+        <a
+          href="/your-cart"
+          className="py-2 px-5 flex items-center rounded-3xl bg-[#4e4e4e]"
+        >
+          <img className="w-5 h-5 mr-1 " src={cartIcon} alt="cartIcon" />
           <span>Your Cart</span>
-          <span className="p-2 rounded-md  font-bold">1</span>
+          <span className="px-4 my-1 ml-2 bg-orange-700 rounded-2xl  font-bold">
+            1
+          </span>
         </a>
         <a href="/login">Login</a>
       </div>

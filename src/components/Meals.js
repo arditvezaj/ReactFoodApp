@@ -45,27 +45,38 @@ const Meals = (props) => {
     },
   ];
   return (
-    <ul>
+    <ul className="flex flex-col justify-center items-center my-10 bg-white rounded-xl w-[60%] m-auto">
       {dummy_meals.map((meal) => (
-        <li className="mt-5 ml-4" key={meal.id}>
-          <div>Name: {meal.name}</div>
-          <div>Description: {meal.description}</div>
-          <div>Price: {meal.price}</div>
-          <input
-            ref={amountInputRef}
-            type="number"
-            min="1"
-            max="5"
-            step="1"
-            defaultValue="1"
-            className="border mr-2"
-          />
-          <button
-            onClick={submitHandler}
-            className="bg-slate-200 rounded-md border p-2"
-          >
-            + Add
-          </button>
+        <li className="my-5 w-[90%]" key={meal.id}>
+          <div className="flex justify-between">
+            <div>
+              <div className="font-bold">{meal.name}</div>
+              <div className="italic">{meal.description}</div>
+              <div className="text-orange-500 font-bold">${meal.price}</div>
+            </div>
+            <div>
+              <div className="flex items-center mb-3">
+                <div className="font-bold mr-2">Amount</div>
+                <input
+                  ref={amountInputRef}
+                  type="number"
+                  min="1"
+                  max="5"
+                  step="1"
+                  defaultValue="1"
+                  className="border text-right"
+                />
+              </div>
+
+              <button
+                onClick={submitHandler}
+                className="bg-orange-800 text-white rounded-xl border px-6 py-1"
+              >
+                + Add
+              </button>
+            </div>
+          </div>
+          <hr className="mt-3" />
           {!amountIsValid && <p>Please enter a valid amount (1-5).</p>}
         </li>
       ))}
