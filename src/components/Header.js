@@ -11,7 +11,7 @@ const Header = () => {
         </a>
         <div className="text-2xl ml-4">Restaurant Diti</div>
       </div>
-      <div className="flex items-center justify-between w-[20rem] mr-10">
+      <div className="flex items-center justify-between w-[28rem] mr-16">
         <a href="/menu">Menu</a>
         <a
           href="/your-cart"

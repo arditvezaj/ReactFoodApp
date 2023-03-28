@@ -6,7 +6,7 @@ import MealsSummary from "./components/MealsSummary";
 
 function App() {
   return (
-    <div className="bg-[#3f3f3f] pb-10">
+    <div className="">
       <Header />
       <MealsSummary />
       <Meals />

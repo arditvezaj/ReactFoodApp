@@ -6,13 +6,10 @@ module.exports = {
     "./src/components/Login.js",
     "./src/components/Meals.js",
     "./src/components/MealsSummary.js",
+    "./src/components/Modal.js",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "background-image": "url('/src/assets/img/background.jpg')",
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };

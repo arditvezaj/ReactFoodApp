@@ -70,7 +70,7 @@ const Meals = (props) => {
 
               <button
                 onClick={submitHandler}
-                className="bg-orange-800 text-white rounded-xl border px-6 py-1"
+                className="bg-orange-800 hover:bg-orange-700 text-white rounded-xl border px-6 py-1"
               >
                 + Add
               </button>
