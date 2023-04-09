@@ -1,13 +1,18 @@
 import React from "react";
 
-import logo from "../assets/img/logo.jpg";
-import cartIcon from "../assets/img/headericon.svg";
+import logo from "../../assets/img/logo.jpg";
+import cartIcon from "../../assets/img/headericon.svg";
+
 const Header = () => {
   return (
     <div className="py-3 flex justify-between items-center font-bold text-white text-lg bg-orange-800">
-      <div className="flex items-center">
+      <div className="flex items-center justify-center">
         <a href="/">
-          <img className="w-20 h-20 ml-3 rounded-full" src={logo} alt="logo" />
+          <img
+            className="w-32 h-32 object-cover ml-3 rounded-full"
+            src={logo}
+            alt="logo"
+          />
         </a>
         <div className="text-2xl ml-4">Restaurant Diti</div>
       </div>
