@@ -19,7 +19,7 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <ul className={classes["cart-items"]}>
+    <ul className="">
       {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
@@ -41,16 +41,16 @@ const Cart = (props) => {
   return (
     <Modal hideCart={props.hideCart}>
       {cartItems}
-      <div className={classes.total}>
+      <div className="">
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      <div className={classes.actions}>
-        <button onClick={props.hideCart} className={classes["button--alt"]}>
+      <div className="">
+        <button onClick={props.hideCart} className="">
           Close
         </button>
         {hasItems && (
-          <button onClick={orderMeal} className={classes.button}>
+          <button onClick={orderMeal} className="">
             Order
           </button>
         )}

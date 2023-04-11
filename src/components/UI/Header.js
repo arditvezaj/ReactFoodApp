@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+
+import CartContext from "../../store/cart-context";
 
 import logo from "../../assets/img/logo.jpg";
 import cartIcon from "../../assets/img/headericon.svg";
 
-const Header = () => {
+const Header = (props) => {
+  const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
+
+  const cartCtx = useContext(CartContext);
+
+  const { items } = cartCtx;
+
+  const numberOfCartItems = items.reduce((currentNumber, item) => {
+    return currentNumber + item.amount;
+  }, 0);
+
+  // const btnClasses = `${classes.button} ${
+  //   btnIsHighlighted ? classes.bump : ""
+  // }`;
+
+  useEffect(() => {
+    if (cartCtx.items.length === 0) {
+      return;
+    }
+    setBtnIsHighlighted(true);
+
+    const timer = setTimeout(() => {
+      setBtnIsHighlighted(false);
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [items]);
+
   return (
     <div className="py-3 flex justify-between items-center font-bold text-white text-lg bg-orange-800">
       <div className="flex items-center justify-center">
@@ -18,16 +49,16 @@ const Header = () => {
       </div>
       <div className="flex items-center justify-between w-[28rem] mr-16">
         <a href="/menu">Menu</a>
-        <a
-          href="/your-cart"
-          className="py-2 px-5 flex items-center rounded-3xl bg-[#4e4e4e]"
+        <div
+          onClick={props.showCart}
+          className="py-2 px-5 cursor-pointer flex items-center rounded-3xl bg-[#4e4e4e]"
         >
           <img className="w-5 h-5 mr-1 " src={cartIcon} alt="cartIcon" />
           <span>Your Cart</span>
           <span className="px-4 my-1 ml-2 bg-orange-700 rounded-2xl  font-bold">
-            1
+            {numberOfCartItems}
           </span>
-        </a>
+        </div>
         <a href="/login">Login</a>
       </div>
     </div>

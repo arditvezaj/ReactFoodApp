@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const Backdrop = (props) => {
-  return <div className={classes.backdrop} onClick={props.hideCart}></div>;
+  return <div className="" onClick={props.hideCart}></div>;
 };
 
 const ModalOverlay = (props) => {
   return (
-    <div className={classes.modal}>
-      <div className={classes.content}>{props.children}</div>
+    <div className="">
+      <div className="">{props.children}</div>
     </div>
   );
 };
