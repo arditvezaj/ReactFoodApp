@@ -2,12 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const Backdrop = (props) => {
-  return <div className="" onClick={props.hideCart}></div>;
+  return (
+    <div
+      className="fixed top-0 left-0 w-full h-screen z-20 bg-black"
+      onClick={props.hideCart}
+    ></div>
+  );
 };
 
 const ModalOverlay = (props) => {
   return (
-    <div className="">
+    <div className="fixed top-[20vh] left-[5%] w-[90%] z-30 bg-white p-4 rounded-xl shadow-lg">
       <div className="">{props.children}</div>
     </div>
   );

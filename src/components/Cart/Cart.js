@@ -19,7 +19,7 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <ul className="">
+    <ul className="m-0 p-0 max-h-[20rem] overflow-auto">
       {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
@@ -41,16 +41,22 @@ const Cart = (props) => {
   return (
     <Modal hideCart={props.hideCart}>
       {cartItems}
-      <div className="">
+      <div className="flex justify-between items-center font-bold text-base my-4 mx-0">
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      <div className="">
-        <button onClick={props.hideCart} className="">
+      <div className="text-right">
+        <button
+          onClick={props.hideCart}
+          className="cursor-pointer bg-transparent border-[#8a2b06] py-2 px-8 rounded-3xl ml-4 text-[#8a2b06] hover:bg-[#5a1a01] hover:border-[#5a1a01] hover:text-white"
+        >
           Close
         </button>
         {hasItems && (
-          <button onClick={orderMeal} className="">
+          <button
+            onClick={orderMeal}
+            className="cursor-pointer bg-transparent border-[#8a2b06] py-2 px-8 rounded-3xl ml-4 text-[#8a2b06] hover:bg-[#5a1a01] hover:border-[#5a1a01] text-white"
+          >
             Order
           </button>
         )}
