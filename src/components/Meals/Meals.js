@@ -1,43 +1,11 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
-import CartContext from "../../store/cart-context";
+import MealItem from "./MealItem";
 
 const Meals = (props) => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
-
-  const [amountIsValid, setAmountIsValid] = useState(true);
-  const amountInputRef = useRef();
-
-  const cartCtx = useContext(CartContext);
-
-  const addToCartHandler = (amount) => {
-    cartCtx.addItem({
-      id: props.id,
-      name: props.name,
-      amount: amount,
-      price: props.price,
-    });
-  };
-
-  const submitHandler = (event) => {
-    event.preventDefault();
-
-    const enteredAmount = amountInputRef.current.value;
-    const enteredAmountNumber = +enteredAmount;
-
-    if (
-      enteredAmount.trim().length === 0 ||
-      enteredAmountNumber < 1 ||
-      enteredAmountNumber > 5
-    ) {
-      setAmountIsValid(false);
-      return;
-    }
-
-    addToCartHandler(enteredAmountNumber);
-  };
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -84,40 +52,13 @@ const Meals = (props) => {
   ) : (
     <ul className="flex flex-col justify-center items-center my-10 bg-white rounded-xl w-[60%] m-auto">
       {meals.map((meal) => (
-        <li className="my-5 w-[90%]" key={meal.id}>
-          <div className="flex justify-between">
-            <div>
-              <div className="font-bold">{meal.name}</div>
-              <div className="italic">{meal.description}</div>
-              <div className="text-orange-500 font-bold">
-                ${meal.price.toFixed(2)}
-              </div>
-            </div>
-            <div>
-              <form onSubmit={submitHandler}>
-                <div className="flex items-center mb-3">
-                  <div className="font-bold mr-2">Amount</div>
-
-                  <input
-                    ref={amountInputRef}
-                    type="number"
-                    min="1"
-                    max="5"
-                    step="1"
-                    defaultValue="1"
-                    className="border text-right"
-                  />
-                </div>
-
-                <button className="bg-orange-800 hover:bg-orange-700 text-white rounded-xl border px-6 py-1">
-                  + Add
-                </button>
-              </form>
-            </div>
-          </div>
-          <hr className="mt-3" />
-          {!amountIsValid && <p>Please enter a valid amount (1-5).</p>}
-        </li>
+        <MealItem
+          id={meal.id}
+          key={meal.id}
+          name={meal.name}
+          description={meal.description}
+          price={meal.price}
+        />
       ))}
     </ul>
   );

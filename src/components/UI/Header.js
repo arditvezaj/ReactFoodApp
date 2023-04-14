@@ -36,16 +36,18 @@ const Header = (props) => {
   }, [items]);
 
   return (
-    <div className="py-3 flex justify-between items-center font-bold text-white text-lg bg-orange-800">
+    <div className="fixed top-0 left-0 w-full py-3 flex justify-between items-center font-bold text-white text-lg bg-orange-800">
       <div className="flex items-center justify-center">
         <a href="/">
           <img
-            className="w-32 h-32 object-cover ml-3 rounded-full"
+            className="w-24 h-24 object-cover ml-3 rounded-full"
             src={logo}
             alt="logo"
           />
         </a>
-        <div className="text-2xl ml-4">Restaurant Diti</div>
+        <div className="text-2xl ml-4">
+          <a href="/">Restaurant Diti</a>
+        </div>
       </div>
       <div className="flex items-center justify-between w-[28rem] mr-16">
         <a href="/menu">Menu</a>
