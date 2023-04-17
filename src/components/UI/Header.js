@@ -33,7 +33,7 @@ const Header = (props) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [items]);
+  }, [items, cartCtx]);
 
   return (
     <div className="fixed top-0 left-0 w-full py-3 flex justify-between items-center font-bold text-white text-lg bg-orange-800">
@@ -61,7 +61,11 @@ const Header = (props) => {
             {numberOfCartItems}
           </span>
         </div>
-        <a href="/login">Login</a>
+        {props.isAuth ? (
+          <button onClick={() => props.logout()}>Logout</button>
+        ) : (
+          <a href="/login">Login</a>
+        )}
       </div>
     </div>
   );
