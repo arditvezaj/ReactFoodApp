@@ -12,13 +12,15 @@ const Header = (props) => {
 
   const { items } = cartCtx;
 
-  const numberOfCartItems = items.reduce((currentNumber, item) => {
-    return currentNumber + item.amount;
-  }, 0);
+  let numberOfCartItems = 0;
 
-  // const btnClasses = `${classes.button} ${
-  //   btnIsHighlighted ? classes.bump : ""
-  // }`;
+  if (props.isAuth === false) {
+    numberOfCartItems = 0;
+  } else {
+    numberOfCartItems = items.reduce((currentNumber, item) => {
+      return currentNumber + item.amount;
+    }, 0);
+  }
 
   useEffect(() => {
     if (cartCtx.items.length === 0) {
@@ -35,6 +37,8 @@ const Header = (props) => {
     };
   }, [items, cartCtx]);
 
+  const btnClasses = "px-4 my-1 ml-2 bg-orange-700 rounded-2xl font-bold";
+
   return (
     <div className="fixed top-0 left-0 w-full py-3 flex justify-between items-center font-bold text-white text-lg bg-orange-800">
       <div className="flex items-center justify-center">
@@ -46,7 +50,7 @@ const Header = (props) => {
           />
         </a>
         <div className="text-2xl ml-4">
-          <a href="/">Restaurant Diti</a>
+          <a href="/">Restaurant</a>
         </div>
       </div>
       <div className="flex items-center justify-between w-[28rem] mr-16">
@@ -57,7 +61,11 @@ const Header = (props) => {
         >
           <img className="w-5 h-5 mr-1 " src={cartIcon} alt="cartIcon" />
           <span>Your Cart</span>
-          <span className="px-4 my-1 ml-2 bg-orange-700 rounded-2xl  font-bold">
+          <span
+            className={`${btnClasses} ${
+              btnIsHighlighted ? "animate-[bump_300ms_ease-out]" : ""
+            }`}
+          >
             {numberOfCartItems}
           </span>
         </div>

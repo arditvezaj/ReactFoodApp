@@ -71,7 +71,7 @@ const Login = (props) => {
           Login
         </button>
         <a
-          href="#"
+          href="/"
           className="flex items-center justify-center mt-6 border w-[20rem] h-10 rounded-md  hover:border-gray-500"
         >
           Register

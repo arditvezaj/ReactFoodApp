@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Header from "./components/UI/Header";
 import Meals from "./components/Meals/Meals";
@@ -21,15 +21,23 @@ function App() {
 
   const login = () => {
     setIsAuth(true);
+    localStorage.setItem("token", "id");
   };
 
   const logout = () => {
     setIsAuth(false);
+    localStorage.removeItem("token", "id");
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("token", "id")) {
+      setIsAuth(true);
+    }
+  }, []);
 
   return (
     <CartProvider>
-      {cartIsShown && <Cart hideCart={hideCartHandler} />}
+      {isAuth && cartIsShown && <Cart hideCart={hideCartHandler} />}
       <Header
         showCart={showCartHandler}
         isAuth={isAuth}
