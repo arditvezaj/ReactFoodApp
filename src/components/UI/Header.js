@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 import CartContext from "../../store/cart-context";
 
@@ -42,19 +43,19 @@ const Header = (props) => {
   return (
     <div className="fixed top-0 left-0 w-full py-3 flex justify-between items-center font-bold text-white text-lg bg-orange-800">
       <div className="flex items-center justify-center">
-        <a href="/">
+        <NavLink to="/">
           <img
             className="w-24 h-24 object-cover ml-3 rounded-full"
             src={logo}
             alt="logo"
           />
-        </a>
+        </NavLink>
         <div className="text-2xl ml-4">
-          <a href="/">Restaurant</a>
+          <NavLink to="/">Restaurant</NavLink>
         </div>
       </div>
       <div className="flex items-center justify-between w-[28rem] mr-16">
-        <a href="/menu">Menu</a>
+        <NavLink to="/menu">Menu</NavLink>
         <div
           onClick={props.showCart}
           className="py-2 px-5 cursor-pointer flex items-center rounded-3xl bg-[#4e4e4e]"
@@ -72,7 +73,7 @@ const Header = (props) => {
         {props.isAuth ? (
           <button onClick={() => props.logout()}>Logout</button>
         ) : (
-          <a href="/login">Login</a>
+          <NavLink to="/login">Login</NavLink>
         )}
       </div>
     </div>

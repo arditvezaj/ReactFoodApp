@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Login = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -70,12 +71,12 @@ const Login = (props) => {
         <button className="mt-6 w-[20rem] h-10 rounded-md text-black bg-orange-400 hover:bg-gray-200">
           Login
         </button>
-        <a
-          href="/"
+        <NavLink
+          to="/"
           className="flex items-center justify-center mt-6 border w-[20rem] h-10 rounded-md  hover:border-gray-500"
         >
           Register
-        </a>
+        </NavLink>
       </form>
     </>
   );
